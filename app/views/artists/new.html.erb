@@ -1,0 +1,16 @@
+<h1>Create New Artist</h1>
+
+<form action="/artists" method= "POST">
+  <input name= "authenticity_token" type= "hidden" value= "<%= form_authenticity_token %>">
+
+  <label>name</label>
+  <input type="text" name= "name">
+  <label>genre</label>
+  <input type="text" name= "genre">
+  <label>photo_url</label>
+  <input type="text" name= "photo_url">
+
+
+  <button>Submit</button>
+
+</form>

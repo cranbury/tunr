@@ -1,0 +1,12 @@
+<h1> User page (show) </h1>
+
+<!-- -->
+
+<% @user.attributes.each do |att| %>
+<%= att[0] + ":       " + att[1].to_s unless att[0] == "id" %>
+<br><br>
+<% end %>
+
+
+<%= button_to "Edit User", "/users/#{@user.id}/edit", :class => "button", method: :get  %>
+<%= button_to "Delete Account", "/users/#{@user.id}", :class => "button", method: :delete  %>

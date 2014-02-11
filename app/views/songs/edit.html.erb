@@ -1,0 +1,16 @@
+<h1>Edit Song</h1>
+
+<form action="/artists/<%= @artist.id %>/songs/<%= @song.id %>" method="POST">
+ <input type="hidden" name="_method" value="patch" />
+  <input name= "authenticity_token" type= "hidden" value= "<%= form_authenticity_token %>">
+
+  <label>name</label>
+  <input type="text" name= "title" value= "<%= @song.title %>">
+  <label>year</label>
+  <input type="integer" name= "year" value= "<%= @song.year %>">
+
+
+
+  <button>Submit</button>
+
+</form>

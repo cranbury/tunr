@@ -1,0 +1,17 @@
+<h1> Show Page </h1>
+
+name: <%= @artist.name %>
+<br>
+genre: <%= @artist.genre %>
+<br>
+songs:
+<br>
+<% @artist.songs.each do |song| %>
+<%= "#{song.title} #{song.year}" %>
+<%= button_to "Edit Song", "/artists/#{@artist.id}/songs/#{song.id}/edit", :class => "button", method: :get  %>
+<%= button_to "Delete Song", "/artists/#{@artist.id}/songs/#{song.id}", :class => "button", method: :delete  %>
+<br>
+<% end %>
+ <a href="/artists/<%= @artist.id %>/songs/new">Create new song</a>
+<br>
+<img src="<%= @artist.photo_url %>"

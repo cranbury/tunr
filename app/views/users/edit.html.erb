@@ -1,0 +1,27 @@
+<h1>Edit Account</h1>
+
+<form action="/users/<%= @user.id %>" method= "POST">
+  <input type="hidden" name="_method" value="put" />
+  <input name= "authenticity_token" type= "hidden" value= "<%= form_authenticity_token %>">
+
+  <label>first name</label>
+  <input type="text" name= "first_name" value="<%= @user.first_name %>">
+  <label>last name</label>
+  <input type="text" name= "last_name" value="<%= @user.last_name %>">
+  <label>date</label>
+  <input type="date" name= "dob" value="<%= @user.dob %>">
+  <label>Sex</label>
+  <input type="text" name= "sex" value="<%= @user.sex %>">
+  <label>Email</label>
+  <input type="email" name= "email" value="<%= @user.email %>">
+  <label>Facebook Link</label>
+  <input type="text" name= "facebook_link" value="<%= @user.facebook_link %>">
+  <label>Password</label>
+  <input type="password" name= "password" value="<%= @user.password %>">
+
+
+
+
+  <button>Submit</button>
+
+</form>

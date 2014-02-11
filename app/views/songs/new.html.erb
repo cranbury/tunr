@@ -1,0 +1,15 @@
+<h1>Create New Song</h1>
+
+<form action="/artists/<%= @artist.id %>/songs" method= "POST">
+  <input name= "authenticity_token" type= "hidden" value= "<%= form_authenticity_token %>">
+
+  <label>name</label>
+  <input type="text" name= "title">
+  <label>year</label>
+  <input type="integer" name= "year">
+
+
+
+  <button>Submit</button>
+
+</form>
