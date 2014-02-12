@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<a href="/artists/">Artist Index</a>
+<%= link_to "Artists Index", "/artists" %>
 
 <% if @song %>
 <a href="/artists/<%= @song.artist.id %>">Artist Page</a>

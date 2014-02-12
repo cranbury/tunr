@@ -1,16 +1,12 @@
-<h1>Create New Artist</h1>
+<%= form_for @artist do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-<form action="/artists" method= "POST">
-  <input name= "authenticity_token" type= "hidden" value= "<%= form_authenticity_token %>">
+  <%= f.label :genre %>
+  <%= f.text_field :genre %>
 
-  <label>name</label>
-  <input type="text" name= "name">
-  <label>genre</label>
-  <input type="text" name= "genre">
-  <label>photo_url</label>
-  <input type="text" name= "photo_url">
+  <%= f.label :photo_url %>
+  <%= f.url_field :photo_url %>
 
-
-  <button>Submit</button>
-
-</form>
+  <%= f.submit "Add Artist" %>
+<% end %>

@@ -1,39 +1,47 @@
 class ArtistsController < ApplicationController
 
-  def index
-    @artists = Artist.all
-    render(:index)
-  end
-
-  def show
-    @artist = Artist.find(params[:id])
-    render(:show)
-  end
+  before_action :load_artist, only: [:show, :edit, :update, :destroy]
 
   def new
-    render(:new)
+    @artist = Artist.new
   end
 
   def create
-    Artist.create({name: params[:name], genre: params[:genre], photo_url: params[:photo_url]})
-    redirect_to("/artists/")
+    @artist = Artist.create(artist_params)
+    binding.pry
+    redirect_to artists_path
   end
 
-   def edit
-    @artist = Artist.find(params[:id])
-    render(:edit)
+  def index
+    @artists = Artist.all
+  end
+
+  def show
+    @songs = @artist.songs.all
+  end
+
+  def edit
   end
 
   def update
-    @artist = Artist.find(params[:id])
-    @artist.update({name: params[:name], genre: params[:genre], photo_url: params[:photo_url]})
-    redirect_to("/artists/")
+    @artist.update(artist_params)
+    redirect_to artists_path
   end
 
   def destroy
-    @artist = Artist.find(params[:id])
     @artist.destroy
-    redirect_to("/artists/") 
+    redirect_to artists_path
+  end
+
+  private
+
+  def load_artist
+    return @artist = Artist.find(params[:id])
+  end
+
+  def artist_params
+    params.require(:artist).permit(:name, :genre, :photo_url)
+    
   end
 
 end
